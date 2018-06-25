@@ -1,0 +1,29 @@
+{
+  "name": "zapier-seymour",
+  "version": "1.0.0",
+  "description": "Post pretty things to Slack",
+  "repository": "zapier/zapier-platform-example-app-minimal",
+  "homepage": "https://zapier.com/",
+  "author": "David Brownman <beamneocube@gmail.com>",
+  "license": "BSD-3-Clause",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive -t 5000"
+  },
+  "engines": {
+    "node": ">=6.10.2",
+    "npm": ">=3.10.10"
+  },
+  "dependencies": {
+    "lodash": "4.17.4",
+    "zapier-platform-core": "7.0.0"
+  },
+  "devDependencies": {
+    "mocha": "3.2.0",
+    "should": "11.2.1"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
