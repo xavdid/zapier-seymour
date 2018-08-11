@@ -1,3 +1,3 @@
 module.exports = {
-  baseUrl: 'https://seymour-rhe6k1mmrh6e.runkit.sh/'
+  baseUrl: 'https://seymour-93erayrwipq7.runkit.sh/'
 }
