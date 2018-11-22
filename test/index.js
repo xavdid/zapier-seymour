@@ -1,6 +1,6 @@
 /* globals describe it */
 
-require('should')
+const should = require('should')
 
 const zapier = require('zapier-platform-core')
 const TEST_CHANNEL = 'C6RBZ562Z'
@@ -34,7 +34,7 @@ describe('Posting Items', () => {
       }
     })
       .then(results => {
-        results.ok.should.be.true()
+        should.exist(results.attachments)
         done()
       })
       .catch(done)
@@ -50,7 +50,8 @@ describe('Posting Items', () => {
       }
     })
       .then(results => {
-        results.ok.should.be.true()
+        should.exist(results.attachments)
+        should(results.attachments.length).equal(2)
         done()
       })
       .catch(done)
@@ -67,7 +68,8 @@ describe('Posting Items', () => {
       }
     })
       .then(results => {
-        results.ok.should.be.true()
+        should.exist(results.attachments)
+        should(results.username.includes('CFB')).be.true()
         done()
       })
       .catch(done)

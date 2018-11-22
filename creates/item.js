@@ -31,7 +31,8 @@ module.exports = {
         key: 'identifier',
         type: 'string',
         helpText:
-          'Used to differentiate between similar content on the same domain'
+          'Used to differentiate between similar content on the same domain',
+        dynamic: 'identifier.name.name'
       },
       {
         key: 're_parse',

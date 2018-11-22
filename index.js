@@ -1,12 +1,10 @@
 const ChannelTrigger = require('./triggers/channel')
-const ItemCreate = require('./creates/item')
+const IdentifierTrigger = require('./triggers/identifier')
 
+const ItemCreate = require('./creates/item')
 const common = require('./common')
 
-// We can roll up all our behaviors in an App.
 const App = {
-  // This is just shorthand to reference the installed dependencies you have. Zapier will
-  // need to know these before we can upload
   version: require('./package.json').version,
   platformVersion: require('zapier-platform-core').version,
 
@@ -30,7 +28,10 @@ const App = {
     }
   ],
 
-  triggers: { [ChannelTrigger.key]: ChannelTrigger },
+  triggers: {
+    [ChannelTrigger.key]: ChannelTrigger,
+    [IdentifierTrigger.key]: IdentifierTrigger
+  },
 
   creates: { [ItemCreate.key]: ItemCreate },
 
