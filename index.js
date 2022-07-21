@@ -1,7 +1,7 @@
 const ChannelTrigger = require('./triggers/channel')
 const IdentifierTrigger = require('./triggers/identifier')
-
 const ItemCreate = require('./creates/item')
+
 const common = require('./common')
 
 const App = {
@@ -13,24 +13,24 @@ const App = {
     (request, z, bundle) => {
       request.params.api_key = bundle.authData.api_key
       return request
-    }
+    },
   ],
 
-  afterResponse: [
-    (response, z) => {
-      if (response.status >= 400) {
-        throw new Error(response.content)
-      } else if (response.json) {
-        return response.json
-      } else {
-        return z.JSON.parse(response.content)
-      }
-    }
-  ],
+  // afterResponse: [
+  //   (response, z) => {
+  //     if (response.status >= 400) {
+  //       throw new Error(response.content)
+  //     } else if (response.json) {
+  //       return response.json
+  //     } else {
+  //       return z.JSON.parse(response.content)
+  //     }
+  //   }
+  // ],
 
   triggers: {
     [ChannelTrigger.key]: ChannelTrigger,
-    [IdentifierTrigger.key]: IdentifierTrigger
+    [IdentifierTrigger.key]: IdentifierTrigger,
   },
 
   creates: { [ItemCreate.key]: ItemCreate },
@@ -42,16 +42,16 @@ const App = {
         key: 'api_key',
         type: 'string',
         required: true,
-        helpText: 'Try going [here](https://google.com)'
-      }
+        helpText: 'Try going [here](https://google.com)',
+      },
     ],
     connectionLabel: 'david',
-    test: z => {
+    test: (z) => {
       return z.request({
-        url: `${common.baseUrl}/channels`
+        url: `${common.baseUrl}/channels`,
       })
-    }
-  }
+    },
+  },
 }
 
 // Finally, export the app.

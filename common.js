@@ -1,3 +1,3 @@
 module.exports = {
-  baseUrl: 'https://seymourapp.herokuapp.com'
+  baseUrl: 'https://seymour-server.herokuapp.com',
 }

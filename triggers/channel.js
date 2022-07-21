@@ -1,10 +1,12 @@
 const common = require('../common')
 
 // triggers on channel with a certain tag
-const triggerChannel = (z, bundle) => {
-  return z.request({
-    url: `${common.baseUrl}/channels`
+const triggerChannel = async (z) => {
+  const response = await z.request({
+    url: `${common.baseUrl}/channels`,
   })
+
+  return response.data
 }
 
 module.exports = {
@@ -14,10 +16,10 @@ module.exports = {
   display: {
     label: 'Get Channel',
     description: 'Triggers on a new channel.',
-    hidden: true
+    hidden: true,
   },
 
   operation: {
-    perform: triggerChannel
-  }
+    perform: triggerChannel,
+  },
 }

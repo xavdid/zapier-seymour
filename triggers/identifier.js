@@ -1,12 +1,12 @@
 const common = require('../common')
 
-const findIdentifier = (z, bundle) => {
-  return z
-    .request({
-      url: `${common.baseUrl}/identifiers`,
-      params: { url: bundle.inputData.url }
-    })
-    .then(res => res.map(i => ({ id: i, name: i })))
+const findIdentifier = async (z, bundle) => {
+  const response = await z.request({
+    url: `${common.baseUrl}/identifiers`,
+    params: { url: bundle.inputData.url },
+  })
+
+  return response.data.map((i) => ({ id: i, name: i }))
 }
 
 module.exports = {
@@ -16,10 +16,10 @@ module.exports = {
   display: {
     label: 'Get Identifier for URL',
     description: 'Dynamic dropdown for identifiers.',
-    hidden: true
+    hidden: true,
   },
 
   operation: {
-    perform: findIdentifier
-  }
+    perform: findIdentifier,
+  },
 }
