@@ -1,3 +1,4 @@
 module.exports = {
-  baseUrl: 'https://seymour-server.herokuapp.com',
+  // NO TRAILING SLASH
+  baseUrl: 'https://seymour.fly.dev',
 }
